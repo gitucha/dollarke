@@ -17,8 +17,7 @@ def init_db():
     conn.close()
 
 def hash_password(password):
-    return 
-    hashlib.sha256(password.encode()).hexdigest()
+    return hashlib.sha256(password.encode()).hexdigest()
 
 def add_user(username, password):
     conn = sqlite3.connect(DB_NAME)
