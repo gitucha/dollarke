@@ -1,10 +1,31 @@
-
 import csv
 import streamlit as st
 from models import Fund
+from db import init_db, add_user, verify_user
 
 st.set_page_config(page_title="DollarKE", layout="wide")
+st.header("Welcome to DollarKE")
 st.title(" Kenyan Money Market Fund Comparison")
+
+# User Authentication
+init_db()
+
+st.sidebar.header("User Authentication")
+auth_action = st.sidebar.selectbox("Action", ["Login", "Sign Up"])  
+username = st.sidebar.text_input("Username")
+password = st.sidebar.text_input("Password", type="password")
+if st.sidebar.button(auth_action):
+    if auth_action == "Sign Up":
+        if add_user(username, password):
+            st.sidebar.success(f"User registered successfully! Please log in.")
+        else:
+            st.sidebar.error("sorry brother, not today!, try a different username.")
+    elif auth_action == "Login":
+        if verify_user(username, password):
+            st.sidebar.success("Login successful!")
+        else:
+            st.sidebar.error("Invalid username or password.")
+
 
 # Get the data from the mmf.csv file(dummy values)
 funds = []
