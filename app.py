@@ -1,4 +1,4 @@
-# app.py
+
 import csv
 import streamlit as st
 from models import Fund
