@@ -8,7 +8,7 @@ Users can filter funds by minimum yield and see the *top 5 funds* in a bar chart
 
 ##  Features
 
-- Loads MMF data from a CSV file (no Pandas required).
+- Loads MMF data from a CSV file.
 - Creates Python Fund objects for each MMF.
 - Filters by *minimum yield* via a sidebar slider.
 - Sorts MMFs by *Net Return* automatically.
