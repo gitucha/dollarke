@@ -42,16 +42,14 @@ table_data = [
 ]
 st.table(table_data)
 
-# --- Top 5 Bar Chart Using Streamlit ---
-st.subheader("Top 5 Funds by Net Return (Built-in Streamlit Chart)")
+# Creating a chart for data analysis
+st.subheader("Top 5 Funds by Net Return")
 top5 = sorted_funds[:5]
 
-# We need a dict where the fund name is index and net return is value
+  # A dict for the chart whereby the mmf name is the index and the net return is the value
 chart_data = {
     f.name: f.net_return() for f in top5
 }
 
-
-# Quick hack: list of net returns, then write names separately.
 st.bar_chart(list(chart_data.values()))
 st.write("Funds (left to right):", ", ".join(chart_data.keys()))
